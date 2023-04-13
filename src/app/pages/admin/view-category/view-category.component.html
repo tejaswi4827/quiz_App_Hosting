@@ -1,0 +1,30 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+       
+        <div class="row ">
+
+            <div class="col-md-12 ">
+
+                <mat-card>
+                    <h1 style="margin-left: 20px;">view category</h1>
+                    <mat-card-header class="card-wrapper">
+                        <mat-list-item *ngFor="let item of categories">
+                            <mat-card-title>{{item.categoryTitle}}</mat-card-title>
+                            <mat-card-subtitle>{{item.description}}</mat-card-subtitle>
+                            <hr>
+                            <mat-divider [vertical]="true"></mat-divider>
+                        </mat-list-item>
+                    </mat-card-header>
+
+
+                </mat-card>
+                <mat-card>
+                    <div class="container text-center " style="margin-top: 15px;">
+                        <button mat-raised-button color="primary" routerLink="/admin/add-categories">Add new
+                            category</button>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
