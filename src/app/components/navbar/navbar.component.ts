@@ -23,6 +23,7 @@ export class NavbarComponent implements OnInit {
   /**
    * logout
    */
+  
   public logout() {
     this.login.LogOut();
     window.location.reload();

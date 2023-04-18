@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
         else if (this.login.getUserRole() == 'Normal') {
           // normal user dashboard
           // window.location.href = '/user-dashboard'
-          this.route.navigate(['user-dashboard'])
+          this.route.navigate(['user-dashboard/0'])
           this.login.loginStatusSubject.next(true);
         }
         else {
@@ -67,5 +67,9 @@ export class LoginComponent implements OnInit {
 
       });
     })
+  }
+  resetData() {
+    this.userLoginDetails.userName = '';
+    this.userLoginDetails.password = '';
   }
 }

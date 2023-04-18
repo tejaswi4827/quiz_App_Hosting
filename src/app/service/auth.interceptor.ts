@@ -7,10 +7,8 @@ import { Injectable } from "@angular/core";
 export class AuthInterceptor implements HttpInterceptor {
     constructor(private login: LoginService) { }
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
-
         let authReq = req;
-        // add the jwt token that is available in local storage
+        // store the jwt token that is available in local storage
         const token = this.login.getToken();
         if (token != null) {
             authReq = authReq.clone({ setHeaders: { Authorization: `${token}` } });

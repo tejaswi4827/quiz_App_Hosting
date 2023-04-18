@@ -1,0 +1,107 @@
+<!--<h1>{{allQuestions|json}}</h1>
+
+    *ngI="allQuestions"
+-->
+<mat-card style="margin-top: 20px;">
+    <div class="col-md-6 text-center" *ngIf="allQuestions.length==0" >
+        <div class="col-md-6">
+            <h1 class="text-center">No questions Available in this Category!!!</h1>
+            <button mat-raised-button color="primary" style="margin-top: 10px;" [routerLink]="'/user-dashboard/0'">Go To
+                All Quiz Page</button>
+        </div>
+    </div>
+</mat-card>
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+
+        <div class="row" *ngIf="isSubmitted == false && allQuestions.length>0">
+            <div class="col-md-2" style="margin-top: 60px;">
+                <mat-card>
+
+                    <h1 class="text-center">Instruction</h1>
+
+                    <ul>
+                        <li>
+                            Please don't refresh the page otherwise timer will start again...
+                        </li>
+                        <li>Don't switch the tab of browser in between.</li>
+                        <li>Click on submit button once you complete the quiz .</li>
+                    </ul>
+                </mat-card>
+            </div>
+            <div class="col-md-8" style="margin-top: 10px;">
+                <ng-container>
+                    <h1>On Going Quiz <b> {{allQuestions[0].quizes.quizTitle}}</b></h1>
+                </ng-container>
+                <mat-card *ngFor="let ques of allQuestions ; let i=index;" style="margin-top: 7px;">
+
+                    <mat-card-content style="margin-top: 3px;">
+                        <p> <b> Q){{i+1}} </b><span [innerHTML]="ques.content"></span></p>
+                        <mat-divider></mat-divider>
+                        <br />
+                        <div class="row ">
+                            <div class="col-md-6">
+                                <input type="radio" [value]="ques.option1" [name]="i.toString()"
+                                    [(ngModel)]="ques.answer" />{{ques.option1}}
+                            </div>
+                            <div class="col-md-6"> <input type="radio" [name]="i.toString()" [value]="ques.option2"
+                                    [(ngModel)]="ques.answer">{{ques.option2}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"> <input type="radio" [name]="i.toString()" [value]="ques.option3"
+                                    [(ngModel)]="ques.answer">{{ques.option3}}
+                            </div>
+                            <div class="col-md-6"> <input type="radio" [name]="i.toString()" [value]="ques.option4"
+                                    [(ngModel)]="ques.answer">{{ques.option4}}
+                            </div>
+                        </div>
+
+                    </mat-card-content>
+
+
+                </mat-card>
+
+                <div class="text-center" style="margin-top: 10px;">
+                    <button mat-raised-button color="primary" (click)=submitQuiz()>Submit quiz
+                    </button>
+                </div>
+
+            </div>
+            <div class="col-md-2 " style="margin-top: 60px;">
+                <mat-card class="example-card tex">
+                    <mat-card-content>
+                        <h2 class="example-h2">Time left:</h2>
+                        <h3 class="text-center">{{getFormattedTime()}}</h3>
+
+                        <mat-spinner class="example-margin " mode="determinate"
+                            [value]="(timer/(this.allQuestions.length*2*60)*100)">
+                        </mat-spinner>
+
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        <!--  showing quiz result in same page for that i have created a variable isSubmitted-->
+        <div class="row" style=" text-align: center;">
+            <div class="col-md-6" *ngIf="isSubmitted == true">
+                <mat-card style="margin-left: 200px; margin-top: 100px;">
+                    <h1><b>Quiz Result </b></h1>
+                    <h1>Candidate Name : {{userName.firstName}} {{userName.lastName}}</h1>
+
+                    <h1>Email : {{userName.email}}</h1>
+                    <h1> Marks Obtained: {{quizResult.Marks_Obtained}}</h1>
+                    <h1> Total Correct Answer: {{quizResult.Total_correct_answer}}</h1>
+
+                    <h1> Marks Percentage: {{quizResult.Marks_Percentage}} %</h1>
+                    <button mat-raised-button color="accent" (click)="printPage()">Print</button>
+                    <button mat-raised-button color="primary" style="margin-top: 10px;"
+                        [routerLink]="'/user-dashboard/0'">Home</button>
+                </mat-card>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

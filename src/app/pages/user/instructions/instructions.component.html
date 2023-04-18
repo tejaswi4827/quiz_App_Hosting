@@ -1,0 +1,52 @@
+<!--<h1>{{quizData|json}}</h1>-->
+
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+
+        <div class="row mt20">
+
+            <div class="col-md-12">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>
+                            Read the instructions of this Page carefully!!!
+                        </mat-card-title>
+                        <mat-card-subtitle>
+                            All the best for next steps:
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <!--content details-->
+                        <h1> {{quizData.quizTitle}}</h1>
+                        <mat-divider></mat-divider>
+                        <h1>Important instructions:</h1>
+                        <ul>
+                            <li>The test contains {{quizData.numberOfQuestion}} questions and there is time limit of
+                                {{quizData.numberOfQuestion *2}} Minutes. </li>
+                            <li>The test is not official, it's just a nice way to see how much you know, or don't know,
+                                about {{quizData.quizTitle}}.</li>
+                            <li>Timer will start once you click on start button</li>
+                            <li>Each question carry {{quizData.maxMarks / quizData.numberOfQuestion}} marks</li>
+                            <li>There is no negative marking !!!</li>
+                        </ul>
+                        <mat-divider></mat-divider>
+                        <h1>Attempt quiz:</h1>
+                        <ul>
+
+                            <li>click <b>Start quiz</b> button to start the quiz</li>
+                            <li>scroll down to move to next question</li>
+                            <li>click on submit quiz button to submit the test.</li>
+                        </ul>
+                    </mat-card-content>
+
+
+             
+                        <div class="text-center">
+                            <button mat-raised-button color="primary" (click)="startQuiz()">Start quiz</button>
+                        </div>
+                  
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

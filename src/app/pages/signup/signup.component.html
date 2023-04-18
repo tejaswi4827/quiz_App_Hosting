@@ -1,6 +1,6 @@
 <div class="bootstrap-wrapper">
     <div class="container" style="height: 100%;">
-        <div class="row" >
+        <div class="row">
             <div class="col-md-6 offset-md-3">
                 <mat-card>
                     <div class="container text-center">
@@ -46,12 +46,12 @@
                                 name="password" required>
                         </mat-form-field>
                         <div class="container text-center">
-                            <button type="submit" mat-fab extended color="primary">
-                                <mat-icon>favorite</mat-icon>
+                            <button type="submit" mat-raised-button extended color="primary">
+
                                 Register
                             </button>
-                            <button class="margin-left" mat-fab extended color="accent">
-                                <mat-icon>favorite</mat-icon>
+                            <button class="margin-left" mat-raised-button extended color="accent" (click)="resetData()">
+
                                 Reset
                             </button>
                         </div>

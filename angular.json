@@ -13,7 +13,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/quiz_portal",
+      
+         "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -27,7 +28,8 @@
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
-              "./node_modules/bootstrap-grid-only-css/dist/css/bootstrap-grid.min.css"
+              "./node_modules/bootstrap-grid-only-css/dist/css/bootstrap-grid.min.css",
+              "node_modules/sweetalert2/src/sweetalert2.scss"
             ],
             "scripts": []
           },
@@ -36,8 +38,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "3mb",
+                  "maximumError": "6mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -97,7 +99,8 @@
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
-              "./node_modules/bootstrap-grid-only-css/dist/css/bootstrap-grid.min.css"
+              "./node_modules/bootstrap-grid-only-css/dist/css/bootstrap-grid.min.css",
+              "node_modules/sweetalert2/src/sweetalert2.scss"
             ],
             "scripts": []
           }

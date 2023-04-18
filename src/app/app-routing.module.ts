@@ -13,6 +13,12 @@ import { ViewCategoryComponent } from './pages/admin/view-category/view-category
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 import { ViewQuizesComponent } from './pages/admin/view-quizes/view-quizes.component';
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+import { ViewQuestionComponent } from './pages/admin/view-question/view-question.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
+import { LoadQuizComponent } from './pages/user/user-dashboard/load-quiz/load-quiz.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
 
 const routes: Routes = [
   {
@@ -56,16 +62,42 @@ const routes: Routes = [
     },
     {
       path: 'add-quiz',
-      component:AddQuizComponent,
+      component: AddQuizComponent,
+    },
+    {
+      path: 'update-quiz/:quizId',
+      component: UpdateQuizComponent,
+    },
+    {
+      path: 'view-question/:quizId/:quizTitle',
+      component: ViewQuestionComponent,
+    },
+    {
+      path: 'add-question/:quizId/:quizTitle',
+      component: AddQuestionComponent,
     }]
   },
   {
     path: 'user-dashboard',
     component: UserDashboardComponent,
-    pathMatch: 'full',
-    canActivate: [NormalGuard],
-  },
 
+    canActivate: [NormalGuard],
+    children: [{
+      path: ':catId',
+      component: LoadQuizComponent,
+    },
+    {
+      path: 'instruction/:quizId',
+      component: InstructionsComponent,
+    },
+    
+    ]
+  },
+  {
+    path: 'start-quiz/:quizId',
+    component: StartQuizComponent,
+    canActivate: [NormalGuard],
+  }
 ];
 
 @NgModule({

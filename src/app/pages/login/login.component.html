@@ -1,10 +1,10 @@
 <div class="bootstrap-wrapper">
     <div class="container">
 
-        <div class="row" >
+        <div class="row" style="margin-top: 40px;">
             <div class="col-md-6 offset-md-3"><mat-card>
                 <div class="container text-center">
-                    <img src="../../../assets/register.jpeg" alt="" style="height: 90 px;width: 90px;" />
+                    <img src="../../../assets/login.jpg" alt="" style="height: 90 px;width: 90px;" />
                 </div>
 
                 <h1 class="text-center">Login Here!!</h1>
@@ -26,12 +26,12 @@
                                     name="password" required>
                             </mat-form-field>
                             <div class="container text-center">
-                                <button type="submit" mat-fab extended color="primary">
-                                    <mat-icon>favorite</mat-icon>
+                                <button type="submit" mat-raised-button color="primary">
+                                  
                                     Login
                                 </button>
-                                <button class="margin-left" mat-fab extended color="accent">
-                                    <mat-icon>favorite</mat-icon>
+                                <button class="margin-left" mat-raised-button color="accent" (click)="resetData()">
+                                  
                                     Reset
                                 </button>
                             </div>

@@ -30,6 +30,18 @@ import { AddCategoryComponent } from './pages/admin/add-category/add-category.co
 import { ViewCategoryComponent } from './pages/admin/view-category/view-category.component';
 import { ViewQuizesComponent } from './pages/admin/view-quizes/view-quizes.component';
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+import { ViewQuestionComponent } from './pages/admin/view-question/view-question.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
+import { SidebarComponent as UserSideBar } from './pages/user/user-dashboard/sidebar/sidebar.component';
+import { LoadQuizComponent } from './pages/user/user-dashboard/load-quiz/load-quiz.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxUiLoaderModule ,NgxUiLoaderHttpModule} from "ngx-ui-loader";
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,12 +58,21 @@ import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
     AddCategoryComponent,
     ViewCategoryComponent,
     ViewQuizesComponent,
-    AddQuizComponent
+    AddQuizComponent,
+    UpdateQuizComponent,
+    ViewQuestionComponent,
+    AddQuestionComponent,
+    UserSideBar,
+    LoadQuizComponent,
+    InstructionsComponent,
+    StartQuizComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,MatListModule,MatTableModule, MatButtonModule, MatIconModule,MatCardModule, MatInputModule, MatFormFieldModule,MatToolbarModule, FormsModule, HttpClientModule, MatSnackBarModule
+    AppRoutingModule,NgxUiLoaderModule,NgxUiLoaderHttpModule.forRoot({
+      showForeground:true,
+    }),CKEditorModule,
+    BrowserAnimationsModule,MatListModule,MatProgressSpinnerModule,MatSlideToggleModule,MatSelectModule,MatTableModule, MatButtonModule, MatIconModule,MatCardModule, MatInputModule, MatFormFieldModule,MatToolbarModule, FormsModule, HttpClientModule, MatSnackBarModule
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]

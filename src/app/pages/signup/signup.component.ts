@@ -20,37 +20,37 @@ export class SignupComponent {
   registerFormSubmit() {
 
     if (this.user.userName == '' || this.user.userName == null) {
-      this.snack.open("username field is required", '',{
+      this.snack.open("username field is required", '', {
         duration: 3000,
-        
+
       });
       return;
     }
     if (this.user.email == '' || this.user.email == null) {
-      this.snack.open("email field is required", '',{
+      this.snack.open("email field is required", '', {
         duration: 3000,
-        
+
       });
       return;
     }
     if (this.user.firstName == '' || this.user.firstName == null) {
-      this.snack.open("first name field is required", '',{
+      this.snack.open("first name field is required", '', {
         duration: 3000,
-        
+
       });
       return;
     }
-    if (this.user.phone == '' || this.user.phone== null) {
-      this.snack.open("phone number is required", '',{
+    if (this.user.phone == '' || this.user.phone == null) {
+      this.snack.open("phone number is required", '', {
         duration: 3000,
-        
+
       });
       return;
     }
     if (this.user.password == '' || this.user.password == null) {
-      this.snack.open("password is required", '',{
+      this.snack.open("password is required", '', {
         duration: 3000,
-        
+
       });
       return;
     }
@@ -59,14 +59,30 @@ export class SignupComponent {
         icon: 'success',
         title: 'User Registeration !!!',
         text: 'Successfully registered !!!',
-      
+
       })
+      // nullify all the value after register from form
+      this.user.email = '';
+      this.user.firstName = '';
+      this.user.lastName = '';
+      this.user.password = '';
+      this.user.phone = '';
+      this.user.userName = '';
     }, (error) => {
-      this.snack.open("Username already present in database  !!!", '',{
+      this.snack.open("Username already present in database  !!!", '', {
         duration: 3000
       });
     }
     );
 
   }
+  resetData() {
+    this.user.email = '';
+    this.user.firstName = '';
+    this.user.lastName = '';
+    this.user.password = '';
+    this.user.phone = '';
+    this.user.userName = '';
+  }
+
 }
